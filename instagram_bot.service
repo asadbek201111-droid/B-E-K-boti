@@ -1,0 +1,17 @@
+[Unit]
+Description=Instagram and AI Telegram Bot (24/7 Service)
+After=network.target
+
+[Service]
+Type=simple
+User=root
+WorkingDirectory=/root/instagram_bot
+ExecStart=/root/instagram_bot/venv/bin/python bot.py
+Restart=always
+RestartSec=5
+StandardOutput=syslog
+StandardError=syslog
+SyslogIdentifier=instagram_bot
+
+[Install]
+WantedBy=multi-user.target
